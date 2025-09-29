@@ -1,61 +1,48 @@
 import { useEffect, useState } from 'react';
-import { ExternalLink, Github, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const projects = [
   {
     title: 'E-Commerce Platform',
-    description: 'Full-stack e-commerce solution built with React, Node.js, and MySQL. Features include user authentication, payment processing, and admin dashboard.',
+    description: 'Full-stack e-commerce application with user authentication, product catalog, shopping cart, and payment processing.',
     technologies: ['React', 'Node.js', 'MySQL', 'Stripe', 'JWT'],
-    demoLink: 'https://demo-ecommerce.com',
-    githubLink: 'https://github.com/username/ecommerce-platform',
-    status: 'Live',
     category: 'Full Stack'
   },
   {
-    title: 'Task Automation Bot',
-    description: 'Intelligent automation platform using n8n workflows to streamline business processes. Integrates with multiple APIs and services.',
-    technologies: ['n8n', 'Node.js', 'REST APIs', 'PostgreSQL', 'Docker'],
-    demoLink: 'https://automation-demo.com',
-    githubLink: 'https://github.com/username/automation-bot',
-    status: 'Live',
+    title: 'Partner Persona Matchmaking',
+    description: 'Automated platform to match partners based on predefined personas using intelligent algorithms and workflow automation.',
+    technologies: ['n8n', 'Node.js', 'REST APIs', 'PostgreSQL'],
     category: 'Automation'
   },
   {
-    title: 'Real-time Analytics Dashboard',
-    description: 'Interactive dashboard for data visualization and real-time monitoring. Built with React and integrated with multiple data sources.',
-    technologies: ['React', 'TypeScript', 'Chart.js', 'WebSocket', 'MongoDB'],
-    demoLink: 'https://analytics-dashboard.com',
-    githubLink: 'https://github.com/username/analytics-dashboard',
-    status: 'In Development',
-    category: 'Data Visualization'
+    title: 'Student Onboarding System',
+    description: 'Comprehensive onboarding system for students including registration, profile setup, and task tracking.',
+    technologies: ['Java', 'Spring Boot', 'MySQL', 'REST APIs', 'React'],
+    category: 'Full Stack'
   },
   {
-    title: 'Mobile Chat Application',
-    description: 'Cross-platform mobile chat app with real-time messaging, file sharing, and group conversations. End-to-end encrypted.',
-    technologies: ['React Native', 'Firebase', 'Socket.io', 'Redux', 'Expo'],
-    demoLink: 'https://play.google.com/store/apps/details?id=com.chatapp',
-    githubLink: 'https://github.com/username/mobile-chat',
-    status: 'Live',
-    category: 'Mobile'
+    title: 'MeetSync',
+    description: 'AI-powered meeting assistant that summarizes meetings, tracks tasks, and integrates with calendar & messaging apps.',
+    technologies: ['React', 'Node.js', 'n8n', 'REST APIs', 'PostgreSQL'],
+    category: 'Automation'
   },
   {
-    title: 'Cloud Infrastructure Manager',
-    description: 'DevOps tool for managing cloud resources across multiple providers. Automated deployment and monitoring capabilities.',
-    technologies: ['Python', 'Terraform', 'AWS', 'Docker', 'Kubernetes'],
-    demoLink: 'https://cloud-manager.com',
-    githubLink: 'https://github.com/username/cloud-manager',
-    status: 'Beta',
-    category: 'DevOps'
-  },
-  {
-    title: 'AI Content Generator',
-    description: 'Machine learning-powered content generation platform. Creates blog posts, social media content, and marketing copy.',
-    technologies: ['Python', 'TensorFlow', 'FastAPI', 'React', 'PostgreSQL'],
-    demoLink: 'https://ai-content.com',
-    githubLink: 'https://github.com/username/ai-content-generator',
-    status: 'Coming Soon',
+    title: 'Movie Recommendation System',
+    description: 'Streamlit-based movie recommendation system using preprocessed similarity matrices and custom algorithms for accurate suggestions.',
+    technologies: ['Python', 'Streamlit', 'Pandas', 'NumPy', 'Machine Learning'],
     category: 'AI/ML'
+  },
+  {
+    title: 'Color Detection App',
+    description: 'Interactive web app that identifies and provides information about colors in images in real-time.',
+    technologies: ['React', 'JavaScript', 'HTML', 'CSS'],
+    category: 'Web App'
+  },
+  {
+    title: 'Email Automation',
+    description: 'Automated email workflows and notifications built using n8n to streamline business communication.',
+    technologies: ['n8n', 'Node.js', 'REST APIs', 'SMTP'],
+    category: 'Automation'
   }
 ];
 
@@ -63,10 +50,10 @@ const ProjectsSection = () => {
   const [visibleProjects, setVisibleProjects] = useState<number[]>([]);
   const [selectedCategory, setSelectedCategory] = useState('All');
 
-  const categories = ['All', 'Full Stack', 'Mobile', 'Automation', 'DevOps', 'AI/ML', 'Data Visualization'];
+  const categories = ['All', 'Full Stack', 'Mobile', 'Automation', 'DevOps', 'AI/ML', 'Data Visualization', 'Web App'];
 
-  const filteredProjects = selectedCategory === 'All' 
-    ? projects 
+  const filteredProjects = selectedCategory === 'All'
+    ? projects
     : projects.filter(project => project.category === selectedCategory);
 
   useEffect(() => {
@@ -75,7 +62,7 @@ const ProjectsSection = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const index = parseInt(entry.target.getAttribute('data-project-index') || '0');
-            setVisibleProjects(prev => [...prev, index]);
+            setVisibleProjects(prev => prev.includes(index) ? prev : [...prev, index]);
           }
         });
       },
@@ -87,16 +74,6 @@ const ProjectsSection = () => {
 
     return () => observer.disconnect();
   }, [filteredProjects]);
-
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'Live': return 'from-green-500 to-emerald-500';
-      case 'In Development': return 'from-yellow-500 to-orange-500';
-      case 'Beta': return 'from-blue-500 to-cyan-500';
-      case 'Coming Soon': return 'from-purple-500 to-pink-500';
-      default: return 'from-gray-500 to-gray-600';
-    }
-  };
 
   return (
     <section id="projects" className="py-20 relative overflow-hidden">
@@ -141,7 +118,6 @@ const ProjectsSection = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project, index) => {
             const isVisible = visibleProjects.includes(index);
-            
             return (
               <div
                 key={project.title}
@@ -151,25 +127,17 @@ const ProjectsSection = () => {
                 }`}
                 style={{ animationDelay: `${index * 200}ms` }}
               >
-                {/* Project Header */}
+                {/* Project Content */}
                 <div className="p-6 pb-4">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="flex-1">
-                      <h3 className="font-orbitron font-bold text-xl text-foreground mb-2 group-hover:text-primary transition-colors">
-                        {project.title}
-                      </h3>
-                      <div className={`inline-block px-3 py-1 rounded-full text-xs font-rajdhani font-semibold bg-gradient-to-r ${getStatusColor(project.status)} text-white`}>
-                        {project.status}
-                      </div>
-                    </div>
-                  </div>
-
+                  <h3 className="font-orbitron font-bold text-xl text-foreground mb-4 group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
                   <p className="text-muted-foreground font-rajdhani leading-relaxed mb-6">
                     {project.description}
                   </p>
 
                   {/* Technologies */}
-                  <div className="flex flex-wrap gap-2 mb-6">
+                  <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
@@ -179,50 +147,13 @@ const ProjectsSection = () => {
                       </span>
                     ))}
                   </div>
-
-                  {/* Action Buttons */}
-                  <div className="flex items-center space-x-4">
-                    <Button
-                      size="sm"
-                      className="bg-primary hover:bg-primary/90 text-primary-foreground font-rajdhani font-semibold glow-cyan flex-1"
-                      onClick={() => window.open(project.demoLink, '_blank')}
-                    >
-                      <ExternalLink className="h-4 w-4 mr-2" />
-                      View Live
-                    </Button>
-                    
-                    <Button
-                      size="sm"
-                      variant="outline"
-                      className="border-border text-muted-foreground hover:text-primary hover:border-primary"
-                      onClick={() => window.open(project.githubLink, '_blank')}
-                    >
-                      <Github className="h-4 w-4" />
-                    </Button>
-                  </div>
                 </div>
 
-                {/* Hover Effect Overlay */}
+                {/* Hover Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
               </div>
             );
           })}
-        </div>
-
-        {/* Call to Action */}
-        <div className="text-center mt-16">
-          <p className="text-lg text-muted-foreground font-rajdhani mb-6">
-            Want to see more of my work?
-          </p>
-          <Button
-            size="lg"
-            variant="outline"
-            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-rajdhani font-semibold tracking-wide group"
-            onClick={() => window.open('https://github.com/yourusername', '_blank')}
-          >
-            Visit My GitHub
-            <ArrowRight className="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" />
-          </Button>
         </div>
       </div>
     </section>

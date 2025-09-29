@@ -39,16 +39,22 @@ const HeroSection = () => {
           </div>
 
           <div className="space-y-6 text-lg font-rajdhani">
-            <p className="text-muted-foreground leading-relaxed">
-              Passionate full-stack developer with expertise in modern web technologies. 
-              I create innovative digital solutions that bridge the gap between design and functionality.
-            </p>
-            
-            <p className="text-muted-foreground leading-relaxed">
-              Specializing in Java, Spring Boot, React, and cloud technologies, I bring ideas to life 
-              through clean code and intuitive user experiences.
-            </p>
-          </div>
+  <p className="text-muted-foreground leading-relaxed">
+    I am a full-stack developer who loves turning ideas into functional, modern web applications. 
+    My focus is on building solutions that are efficient, scalable, and easy to use.
+  </p>
+
+  <p className="text-muted-foreground leading-relaxed">
+    With experience in Java, Spring Boot, Automation, and cloud technologies, I bring projects to life with clean code and thoughtful design. 
+    I enjoy simplifying complex workflows, automating tasks, and creating user experiences that feel seamless and intuitive.
+  </p>
+
+  <p className="text-muted-foreground leading-relaxed">
+    My goal is to craft innovative digital solutions that not only meet technical requirements but also provide real value to users and businesses.
+  </p>
+</div>
+
+
 
           <div className="flex flex-col sm:flex-row gap-4">
             <Button
@@ -72,28 +78,29 @@ const HeroSection = () => {
 
         {/* Profile Image */}
         <div className={`relative ${isVisible ? 'animate-fade-in delay-300' : 'opacity-0'}`}>
-          <div className="relative w-full max-w-md mx-auto">
+          <div className="relative w-full max-w-lg mx-auto">
             {/* Glow effect behind image */}
-            <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-accent/30 rounded-2xl blur-2xl scale-105"></div>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary/30 to-accent/30 rounded-full blur-2xl scale-105"></div>
             
             {/* Main image container */}
-            <div className="relative glass-card rounded-2xl overflow-hidden hover-lift">
+            <div className="relative glass-card rounded-full overflow-hidden hover-lift w-96 h-96 mx-auto">
               <img
                 src={heroImage}
                 alt="Professional headshot"
-                className="w-full h-auto object-cover"
-                style={{ aspectRatio: '4/5' }}
+                className="w-full h-full object-cover"
               />
               
               {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent"></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent rounded-full"></div>
             </div>
 
             {/* Floating elements */}
-            <div className="absolute -top-4 -right-4 w-8 h-8 bg-primary rounded-full glow-cyan animate-pulse"></div>
-            <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-accent rounded-full glow-purple animate-pulse delay-500"></div>
+            <div className="absolute -top-6 -right-6 w-10 h-10 bg-primary rounded-full glow-cyan animate-pulse"></div>
+            <div className="absolute -bottom-6 -left-6 w-8 h-8 bg-accent rounded-full glow-purple animate-pulse delay-500"></div>
           </div>
         </div>
+
+
       </div>
 
       {/* Scroll indicator */}

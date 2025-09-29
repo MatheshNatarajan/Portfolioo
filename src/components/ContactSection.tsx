@@ -9,10 +9,10 @@ const ContactSection = () => {
   const { toast } = useToast();
 
   const contactInfo = {
-    email: 'your.email@example.com',
-    linkedin: 'https://linkedin.com/in/yourprofile',
-    phone: '+1 (555) 123-4567',
-    location: 'San Francisco, CA'
+    email: 'math8shh@gmail.com',
+    linkedin: 'https://www.linkedin.com/in/mathesh-natarajan-35931428a/',
+    phone: '+91 93448 55564',
+    location: 'Coimbatore, India'
   };
 
   const copyToClipboard = async (text: string, type: string) => {

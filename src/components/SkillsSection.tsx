@@ -3,41 +3,30 @@ import { Code, Database, Cloud, Smartphone, Globe, Settings } from 'lucide-react
 
 const skills = [
   {
-    category: 'Backend Development',
+    category: 'Language',
     icon: Database,
-    skills: ['Java', 'Spring Boot', 'REST APIs', 'Microservices', 'Node.js', 'Python'],
+    skills: ['Java','Python' , 'C'],
     color: 'from-neon-cyan to-neon-blue'
   },
   {
-    category: 'Frontend Development',
-    icon: Code,
-    skills: ['React', 'TypeScript', 'Next.js', 'Tailwind CSS', 'JavaScript', 'HTML/CSS'],
-    color: 'from-neon-purple to-neon-pink'
+    category: 'Frameworks and Tools',
+    icon: Database,
+    skills: ['Spring boot','n8n - Expertise','REST APIs'],
+    color: 'from-neon-cyan to-neon-blue'
   },
   {
     category: 'Database & Storage',
     icon: Database,
-    skills: ['MySQL', 'PostgreSQL', 'MongoDB', 'Redis', 'Firebase', 'Supabase'],
+    skills: ['MySQL', 'PostgreSQL'],
     color: 'from-neon-blue to-neon-cyan'
   },
   {
-    category: 'Cloud & DevOps',
+    category: 'DevOps',
     icon: Cloud,
-    skills: ['AWS', 'Docker', 'Kubernetes', 'CI/CD', 'Jenkins', 'Terraform'],
+    skills: ['Docker'],
     color: 'from-neon-pink to-neon-purple'
-  },
-  {
-    category: 'Tools & Automation',
-    icon: Settings,
-    skills: ['n8n', 'Git', 'Jira', 'Postman', 'VS Code', 'IntelliJ IDEA'],
-    color: 'from-neon-cyan to-neon-purple'
-  },
-  {
-    category: 'Mobile & Web',
-    icon: Smartphone,
-    skills: ['React Native', 'Flutter', 'PWA', 'Responsive Design', 'Web APIs', 'GraphQL'],
-    color: 'from-neon-blue to-neon-pink'
   }
+  
 ];
 
 const SkillsSection = () => {
