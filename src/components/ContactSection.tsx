@@ -93,26 +93,35 @@ const ContactSection = () => {
           ) : (
             <div className="animate-fade-in">
               <div className="grid md:grid-cols-2 gap-8 mb-12">
-                {/* Email */}
-                <div className="glass-card p-6 rounded-2xl hover-lift group">
-                  <div className="flex items-center space-x-4">
-                    <div className="p-3 rounded-xl bg-gradient-to-r from-neon-cyan to-neon-blue glow-cyan">
-                      <Mail className="h-6 w-6 text-background" />
-                    </div>
-                    <div className="flex-1 text-left">
-                      <h4 className="font-orbitron font-semibold text-foreground mb-1">Email</h4>
-                      <p className="text-muted-foreground font-rajdhani">{contactInfo.email}</p>
-                    </div>
-                    <Button
-                      size="sm"
-                      variant="ghost"
-                      className="text-muted-foreground hover:text-primary"
-                      onClick={() => copyToClipboard(contactInfo.email, 'Email')}
-                    >
-                      {copiedItem === 'Email' ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-                    </Button>
-                  </div>
+            {/* Email */}
+            <div className="glass-card p-6 rounded-2xl hover-lift group">
+              <div className="flex items-center space-x-4">
+                <div className="p-3 rounded-xl bg-gradient-to-r from-neon-cyan to-neon-blue glow-cyan">
+                  <Mail className="h-6 w-6 text-background" />
                 </div>
+                <div className="flex-1 text-left">
+                  <h4 className="font-orbitron font-semibold text-foreground mb-1">Email</h4>
+                  <a
+                    href={`mailto:${contactInfo.email}`}
+                    className="text-muted-foreground font-rajdhani hover:text-primary transition-colors"
+                  >
+                    {contactInfo.email}
+                  </a>
+                </div>
+                <Button
+                  size="sm"
+                  variant="ghost"
+                  className="text-muted-foreground hover:text-primary"
+                  onClick={() => copyToClipboard(contactInfo.email, 'Email')}
+                >
+                  {copiedItem === 'Email' ? (
+                    <Check className="h-4 w-4" />
+                  ) : (
+                    <Copy className="h-4 w-4" />
+                  )}
+                </Button>
+              </div>
+            </div>
 
                 {/* LinkedIn */}
                 <div className="glass-card p-6 rounded-2xl hover-lift group">
@@ -183,7 +192,7 @@ const ContactSection = () => {
                 <Button
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-primary-foreground font-rajdhani font-semibold tracking-wide glow-cyan group"
-                  onClick={() => window.open(`mailto:${contactInfo.email}`, '_blank')}
+                  onClick={() => window.location.href = `mailto:${contactInfo.email}`}
                 >
                   <Mail className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
                   Send Email
