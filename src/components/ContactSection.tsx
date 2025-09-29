@@ -9,7 +9,7 @@ const ContactSection = () => {
   const { toast } = useToast();
 
   const contactInfo = {
-    email: 'math8shh@gmail.com',
+    email: 'matheshnatarajan2006@gmail.com',
     linkedin: 'https://www.linkedin.com/in/mathesh-natarajan-35931428a/',
     phone: '+91 93448 55564',
     location: 'Coimbatore, India'
