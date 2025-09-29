@@ -139,7 +139,7 @@ const Navigation = () => {
                   onClick={() => window.open('https://www.linkedin.com/in/mathesh-natarajan-35931428a/', '_blank')}
                 >
                   <Linkedin className="h-5 w-5" />
-                  <span className="ml-2">LinkedIn</span>
+                  <span className="ml-2">LinkedIn</span> 
                 </Button>
               </div>
             </div>
