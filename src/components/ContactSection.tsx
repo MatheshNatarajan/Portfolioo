@@ -202,7 +202,7 @@ const ContactSection = () => {
                   size="lg"
                   variant="outline"
                   className="border-primary text-primary hover:bg-primary hover:text-primary-foreground font-rajdhani font-semibold tracking-wide group"
-                  onClick={() => window.open(contactInfo.linkedin, '_blank')}
+                  onClick={() => window.open(contactInfo.linkedin,)}
                 >
                   <Linkedin className="h-5 w-5 mr-2 group-hover:scale-110 transition-transform" />
                   Connect on LinkedIn
