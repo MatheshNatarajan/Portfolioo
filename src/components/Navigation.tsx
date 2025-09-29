@@ -68,7 +68,7 @@ const Navigation = () => {
               size="sm"
               variant="ghost"
               className="text-foreground hover:text-primary hover:glow-cyan"
-              onClick={() => window.open('mailto:math8shh@gmail.com', '_blank')}
+              onClick={() => window.open('mailto:matheshnatarajan2006@gmail.com')}
             >
               <Mail className="h-5 w-5" />
             </Button>
@@ -76,7 +76,7 @@ const Navigation = () => {
               size="sm"
               variant="ghost"
               className="text-foreground hover:text-primary hover:glow-cyan"
-              onClick={() => window.open('https://www.linkedin.com/in/mathesh-natarajan-35931428a/', '_blank')}
+              onClick={() => window.open('https://www.linkedin.com/in/mathesh-natarajan-35931428a/')}
             >
               <Linkedin className="h-5 w-5" />
             </Button>
